@@ -1,0 +1,55 @@
+﻿<Window x:Class="Biblioteka_Multimedialna.View.EditCategoryOrTag"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteka_Multimedialna"
+        mc:Ignorable="d"
+        Title="EditCategoryOrTag" Height="361.993" Width="494.834">
+    <Grid>
+        <ListView ItemsSource="{Binding}" Height="188" HorizontalAlignment="Left" Margin="10,10,0,0" Name="tagsListOfCheckBox" VerticalAlignment="Top" Width="213" SelectionMode="Single" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  IsChecked="{Binding Path=IsSelected, 
+                                 RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Tagi" Width="100" DisplayMemberBinding="{Binding Name}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView ItemsSource="{Binding}" Height="188" HorizontalAlignment="Left" Margin="262,10,0,0" Name="categoryListOfCheckBox" VerticalAlignment="Top" Width="213" SelectionMode="Single" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  IsChecked="{Binding Path=IsSelected, 
+                                 RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Kategorie" Width="100" DisplayMemberBinding="{Binding Name}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="BtnTagRename" Content="Zmień nazwe" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" Width="98" Click="BtnTagRename_Click"/>
+        <TextBox x:Name="TbTagRename" HorizontalAlignment="Left" Margin="113,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button x:Name="BtnTagAdd" Content="Dodaj Tag" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="98" Click="BtnTagAdd_Click"/>
+        <TextBox x:Name="TbTagAdd" HorizontalAlignment="Left" Margin="113,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button x:Name="BtnTagDelete" Content="Usuń Tag" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Width="213" Click="BtnTagDelete_Click"/>
+
+        <Button x:Name="BtnCategoryRename" Content="Zmień nazwe" HorizontalAlignment="Left" Margin="262,203,0,0" VerticalAlignment="Top" Width="98" Click="BtnCategoryRename_Click"/>
+        <TextBox x:Name="TbCategoryRename" HorizontalAlignment="Left" Margin="365,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button x:Name="BtnCategoryAdd" Content="Dodaj Kategorie" HorizontalAlignment="Left" Margin="262,228,0,0" VerticalAlignment="Top" Width="98" Click="BtnCategoryAdd_Click"/>
+        <TextBox x:Name="TbCategoryAdd" HorizontalAlignment="Left" Margin="365,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button x:Name="BtnCategoryDelete" Content="Usuń Kategorie" HorizontalAlignment="Left" Margin="262,253,0,0" VerticalAlignment="Top" Width="213" Click="BtnCategoryDelete_Click"/>
+        <Button x:Name="BtnBackToAlbum" Content="Powrót do galerii" HorizontalAlignment="Left" Margin="10,278,0,0" VerticalAlignment="Top" Width="465" Height="43" Click="BtnBackToAlbum_Click"/>
+
+    </Grid>
+</Window>
